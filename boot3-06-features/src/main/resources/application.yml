@@ -1,0 +1,7 @@
+spring:
+  banner:
+    location: banner.txt  # 定义启动横幅
+  main:
+    banner-mode: console  # 设置banner的位置 log、console、off
+  profiles:
+    active: dev

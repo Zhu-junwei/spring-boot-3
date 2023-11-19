@@ -1,0 +1,5 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.234.128:9092
+    producer: # 设置生产者的值序列化器，默认org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

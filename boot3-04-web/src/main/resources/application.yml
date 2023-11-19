@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  error:
+    path: /error  #错误路径，默认为error
+spring:
+  web:
+    resources:
+      add-mappings: true  #是否启用默认资源处理。 默认true
+      cache:
+        period: 3600     #由资源处理程序服务的资源的缓存周期。如果未指定持续时间后缀，则使用秒。可以被“spring.web.resources.cache”覆盖。cachecontrol”属性
+        use-last-modified: true
+        cachecontrol:
+          max-age: 7200 #用了cachecontrol，period将会被覆盖
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/  #静态资源的位置。默认classpath:[/META-INF/resources/, /resources/, /static/, /public/].
+  mvc:
+    webjars-path-pattern: /webjars/**  #自定义webjars路径前缀。默认/webjars/**
+    static-path-pattern: /** #自定义静态资源访问路径前缀。默认/**
+    pathmatch:
+      matching-strategy: path_pattern_parser  #针对注册映射匹配请求路径的策略选择。默认path_pattern_parser，可选ant_path_matcher
+    contentnegotiation:     # 内容协商
+      favor-parameter: true # 是否应该使用请求参数(默认为“format”)来确定请求的媒体类型。默认为false
+      parameter-name: format  # 启用“favor-parameter”时使用的参数名称。默认使用format
+      media-types:
+        yaml: application/yaml  # 添加yaml格式返回支持
+    problemdetails: # 是否启用RFC 7807问题详细信息支持 , 默认为false
+      enabled: false
+#  thymeleaf:
+#    cache: false
+logging:
+  level:
+    root: info
