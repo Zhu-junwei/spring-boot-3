@@ -20,6 +20,7 @@
         <module>boot3-09-redis</module>
         <module>boot3-10-crud</module>
         <module>boot3-11-rpc</module>
+        <module>boot3-12-message</module>
         <module>boot3-13-security</module>
         <module>boot3-14-actuator</module>
         <module>java-docker-demo</module>
