@@ -1,25 +1,30 @@
 package com.atguigu.boot.config;
 
 import com.atguigu.boot.bean.Pig;
-import com.atguigu.boot.bean.Sheep;
 import com.atguigu.boot.bean.User;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 /**
- * @author 朱俊伟
- * @date 2023/10/19 22:59
+ * 声明这是一个配置类，Spring Boot在启动时会自动读取这个类中的配置信息
  */
-
-//@Import(FastsqlException.class)
 @Configuration
-//@SpringBootApplication
-@EnableConfigurationProperties(Sheep.class)
 public class AppConfig {
 
+    /**
+     * 创建Pig对象注册到Spring容器中，id默认是方法名
+     */
+    @Bean
+    @ConfigurationProperties(prefix = "pig")
+    public Pig pig(){
+        return new Pig();
+    }
+
+    /**
+     * 创建多例User对象注册到Spring容器中，id为user22
+     */
     @Bean("user22")
     @Scope("prototype")
     public User user(){
@@ -27,12 +32,6 @@ public class AppConfig {
         user.setName("张三");
         user.setId(1L);
         return user;
-    }
-
-    @Bean
-    @ConfigurationProperties(prefix = "pig")
-    public Pig pig(){
-        return new Pig();
     }
 
 }
