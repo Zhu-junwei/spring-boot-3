@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    publisher-confirm-type: correlated #设置发布者确认，调用RabbitTemplate.ConfirmCallback.confirm方法
+    publisher-returns: true  # 交换机无法路由消息时回退给生产者，调用RabbitTemplate.ReturnCallback.returnedMessage方法

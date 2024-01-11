@@ -5,11 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zjw</groupId>
-    <artifactId>boot3-12-message</artifactId>
+    <artifactId>RabbitMQ</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>boot3-12-message</name>
-    <description>boot3-12-message</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,8 +16,8 @@
     </properties>
 
     <modules>
-        <module>KafkaMQ</module>
-        <module>RabbitMQ</module>
+        <module>RabbitMQ-producer</module>
+        <module>RabbitMQ-consumer</module>
     </modules>
 
 </project>
