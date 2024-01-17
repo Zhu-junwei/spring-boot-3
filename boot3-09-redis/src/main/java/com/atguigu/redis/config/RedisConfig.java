@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  *     Redis的对象序列化使用的是JdkSerializationRedisSerializer，数据在redis格式不方面排查，
  *     此工具类自定义了序列化器。
  * @author 朱俊伟
- * @date 2023/11/02 22:49
+ * @since 2023/11/02 22:49
  */
 @Configuration
 public class RedisConfig {

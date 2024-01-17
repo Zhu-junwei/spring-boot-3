@@ -4,13 +4,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * HelloWorld Demo Controller
+ *
  * @author 朱俊伟
- * @date 2023/10/19 6:47
+ * @since 2023/10/19 6:47
  */
 @RestController
 public class HelloController {
 
-    @GetMapping("/hello") //请求路径
+    /**
+     * <a href="http://localhost:9999/hello">http://localhost:9999/hello</a>
+     * @return 字符串"Hello World!"
+     */
+    @GetMapping("/hello")
     public String hello(){
         return "Hello World!";
     }

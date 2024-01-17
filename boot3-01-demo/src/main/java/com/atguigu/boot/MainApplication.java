@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/19 6:44
+ * @since 2023/10/19 6:44
  */
 @SpringBootApplication
 public class MainApplication {

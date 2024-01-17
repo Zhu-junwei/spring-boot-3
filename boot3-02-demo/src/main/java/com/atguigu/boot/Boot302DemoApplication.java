@@ -9,6 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author 朱俊伟
+ */
 @SpringBootApplication
 public class Boot302DemoApplication {
 
@@ -25,8 +28,10 @@ public class Boot302DemoApplication {
         User user2 = ioc.getBean("user22",User.class);
         System.out.println(user1);
         System.out.println(user2);
-        System.out.println("user1 == user2 = " + (user1 == user2)); // false 内存地址不一样
-        System.out.println("user1.equals(user2) = " + user1.equals(user2)); // true 重写了equals方法，比较对象属性值
+        // false 内存地址不一样
+        System.out.println("user1 == user2 = " + (user1 == user2));
+        // true 重写了equals方法，比较对象属性值
+        System.out.println("user1.equals(user2) = " + user1.equals(user2));
 
         System.out.println("******获取容器中的对象id，判断条件注解******");
         List<String> nameList = Arrays.asList(ioc.getBeanDefinitionNames());

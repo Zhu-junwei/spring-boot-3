@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 条件注解
+ * @author 朱俊伟
  */
 @Configuration
 public class AppConfig3 {

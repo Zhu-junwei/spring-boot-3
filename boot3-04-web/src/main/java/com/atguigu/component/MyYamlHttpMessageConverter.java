@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/25 11:28
+ * @since 2023/10/25 11:28
  */
 public class MyYamlHttpMessageConverter extends AbstractHttpMessageConverter<Object> {
 

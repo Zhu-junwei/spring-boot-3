@@ -9,12 +9,13 @@ import org.springframework.context.annotation.Scope;
 
 /**
  * 声明这是一个配置类，Spring Boot在启动时会自动读取这个类中的配置信息
+ * @author 朱俊伟
  */
 @Configuration
 public class AppConfig {
 
     /**
-     * 创建Pig对象注册到Spring容器中，id默认是方法名
+     * 创建Pig对象注册到Spring容器中，id默认是方法名，默认是单例的
      */
     @Bean
     @ConfigurationProperties(prefix = "pig")

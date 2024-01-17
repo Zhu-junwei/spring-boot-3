@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 12:06
+ * @since 2023/10/30 12:06
  */
 @Data
 public class TUser {

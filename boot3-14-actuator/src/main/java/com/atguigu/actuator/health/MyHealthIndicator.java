@@ -2,7 +2,7 @@ package com.atguigu.actuator.health;
 
 /**
  * @author 朱俊伟
- * @date 2023/11/10 12:27
+ * @since 2023/11/10 12:27
  */
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;

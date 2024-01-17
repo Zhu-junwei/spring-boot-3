@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 自定义配置类，用来增强WebMvcConfigurer的功能
  * @author 朱俊伟
- * @date 2023/10/25 11:24
+ * @since 2023/10/25 11:24
  */
 @Configuration
 public class MyConfig {

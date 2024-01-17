@@ -11,7 +11,7 @@ import java.time.Duration;
 /**
  * SpringBoot的生命周期
  * @author 朱俊伟
- * @date 2023/10/30 16:46
+ * @since 2023/10/30 16:46
  */
 @Slf4j
 public class MyApplicationListener implements SpringApplicationRunListener {

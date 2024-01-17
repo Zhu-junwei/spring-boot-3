@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 18:58
+ * @since 2023/10/30 18:58
  */
 @Component
 public class EventPublisher implements ApplicationEventPublisherAware {

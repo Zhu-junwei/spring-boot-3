@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 12:20
+ * @since 2023/10/30 12:20
  */
 @RestController
 @RequestMapping("/user")

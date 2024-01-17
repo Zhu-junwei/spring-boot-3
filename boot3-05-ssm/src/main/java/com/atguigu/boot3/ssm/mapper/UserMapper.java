@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 12:08
+ * @since 2023/10/30 12:08
  */
 public interface UserMapper {
 

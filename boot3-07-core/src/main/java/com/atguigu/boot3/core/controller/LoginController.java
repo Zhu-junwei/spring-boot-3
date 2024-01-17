@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 18:57
+ * @since 2023/10/30 18:57
  */
 @RestController
 public class LoginController {

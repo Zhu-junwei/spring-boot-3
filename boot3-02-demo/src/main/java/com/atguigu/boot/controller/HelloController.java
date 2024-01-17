@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/19 9:33
+ * @since 2023/10/19 9:33
  */
 @RestController
 public class HelloController {

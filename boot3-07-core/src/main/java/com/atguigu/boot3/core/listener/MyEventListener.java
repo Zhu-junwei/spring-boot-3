@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationListener;
 
 /**
  * @author 朱俊伟
- * @date 2023/10/30 18:02
+ * @since 2023/10/30 18:02
  */
 public class MyEventListener implements ApplicationListener<ApplicationEvent> {
 
