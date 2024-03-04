@@ -20,17 +20,26 @@ public class RedisUtil {
     @Autowired
     RedisTemplate redisTemplate;
 
+    /**
+     * 删除指定的key
+     * @param key 键
+     * @return 结果
+     */
+    public Boolean delete(String key){
+        return redisTemplate.delete(key);
+    }
 
     /**
      * 给一个指定的 key 值附加过期时间
      *
-     * @param key 键
+     * @param key  键
      * @param time 过期时间，单位为秒
      * @return
      */
     public boolean expire(String key, long time) {
         return redisTemplate.expire(key, time, TimeUnit.SECONDS);
     }
+
     /**
      * 根据key 获取过期时间
      *
@@ -61,6 +70,17 @@ public class RedisUtil {
      */
     public Object get(String key) {
         return key == null ? null : redisTemplate.opsForValue().get(key);
+    }
+
+    /**
+     * 根据key获取String值
+     *
+     * @param key 键
+     * @return 值
+     */
+    public String getString(String key) {
+        Object object = get(key);
+        return object == null ? null : object.toString();
     }
 
     /**
@@ -198,12 +218,13 @@ public class RedisUtil {
 
     /**
      * 弹出set中指定数量的元素
-     * @param key 键
+     *
+     * @param key   键
      * @param count 数量
      * @return
      */
     public List<Object> pop(String key, long count) {
-        return redisTemplate.opsForSet().pop(key,count);
+        return redisTemplate.opsForSet().pop(key, count);
     }
 
 
@@ -268,11 +289,12 @@ public class RedisUtil {
 
     /**
      * 向Redis中添加hash类型
+     *
      * @param key
      * @param map
      */
     public void putHash(String key, String hashKey, Object value) {
-        redisTemplate.opsForHash().put(key,hashKey,value);
+        redisTemplate.opsForHash().put(key, hashKey, value);
     }
 
     /**
@@ -309,6 +331,7 @@ public class RedisUtil {
 
     /**
      * 获取指定key的值string
+     *
      * @param key
      * @param hashKey
      * @return
@@ -319,9 +342,10 @@ public class RedisUtil {
 
     /**
      * 删除指定 hash 的 HashKey
+     *
      * @return 删除成功的 数量
      */
-    public Long delete(String key, String... hashKeys) {
+    public Long delete(String key, Object... hashKeys) {
         return redisTemplate.opsForHash().delete(key, hashKeys);
     }
 
@@ -387,27 +411,52 @@ public class RedisUtil {
     /**
      * 向左边批量添加参数元素。
      */
-    public void leftPushAll(String key, String... values) {
+    public void leftPushAll(String key, Object... values) {
         redisTemplate.opsForList().leftPushAll(key, values);
     }
 
+    public void leftPushAll(String key, List<String> values) {
+        redisTemplate.opsForList().leftPushAll(key, values);
+    }
+
+
     /**
-     * 向集合最右边添加元素。
+     * 向list集合最右边添加元素。
      */
-    public void leftPushAll(String key, String value) {
+    public void rightPushAll(String key, String value) {
         redisTemplate.opsForList().rightPush(key, value);
     }
 
     /**
-     * 向左边批量添加参数元素。
+     * 向list集合最右边添加元素。
      */
-    public void rightPushAll(String key, String... values) {
-        //redisTemplate.opsForList().leftPushAll(key,"w","x","y");
+    public void push(String key, String value) {
+        rightPushAll(key, value);
+    }
+
+    /**
+     * 向list右边批量添加参数元素。
+     */
+    public void rightPushAll(String key, Object... values) {
         redisTemplate.opsForList().rightPushAll(key, values);
     }
 
     /**
-     * 向已存在的集合中添加元素。
+     * 向list右边批量添加参数元素。
+     */
+    public void rightPushAll(String key, List<String> values) {
+        redisTemplate.opsForList().rightPushAll(key, values);
+    }
+
+    /**
+     * 向list右边批量添加参数元素。
+     */
+    public void pushAll(String key, List<String> values) {
+        rightPushAll(key, values);
+    }
+
+    /**
+     * 向已存在的list集合中添加元素。
      */
     public void rightPushIfPresent(String key, Object value) {
         redisTemplate.opsForList().rightPushIfPresent(key, value);
@@ -421,17 +470,38 @@ public class RedisUtil {
     }
 
     /**
+     * 获取list中的所有元素
+     *
+     * @param key
+     * @return
+     */
+    public List<String> listAll(String key) {
+        Long size = redisTemplate.opsForList().size(key);
+        return redisTemplate.opsForList().range(key, 0, size);
+    }
+
+    /**
+     * 获取list中的指定范围的元素
+     *
+     * @param key
+     * @return
+     */
+    public List listRange(String key, long start, long size) {
+        return redisTemplate.opsForList().range(key, start, size);
+    }
+
+    /**
      * 移除集合中的左边第一个元素。
      */
-    public void leftPop(String key) {
-        redisTemplate.opsForList().leftPop(key);
+    public Object leftPop(String key) {
+        return redisTemplate.opsForList().leftPop(key);
     }
 
     /**
      * 移除集合中左边的元素在等待的时间里，如果超过等待的时间仍没有元素则退出。
      */
-    public void leftPop(String key, long timeout, TimeUnit unit) {
-        redisTemplate.opsForList().leftPop(key, timeout, unit);
+    public Object leftPop(String key, long timeout, TimeUnit unit) {
+        return redisTemplate.opsForList().leftPop(key, timeout, unit);
     }
 
     /**
