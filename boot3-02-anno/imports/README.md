@@ -1,0 +1,1 @@
+通过自动`@Import({Dog.class})`注解向Spring容器中导入类，默认是类的全类名。

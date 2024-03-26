@@ -5,11 +5,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
+        <version>3.2.4</version>
         <relativePath/>
     </parent>
     <groupId>com.zjw</groupId>
-    <artifactId>java-docker-demo</artifactId>
+    <artifactId>boot3-17-docker</artifactId>
     <version>1.0</version>
     <name>java-docker-demo</name>
     <description>java-docker-demo</description>
