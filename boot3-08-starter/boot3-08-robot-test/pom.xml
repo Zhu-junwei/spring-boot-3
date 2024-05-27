@@ -3,18 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
-        <relativePath/>
+        <groupId>com.zjw</groupId>
+        <artifactId>boot3-08-starter</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <groupId>com.zjw</groupId>
     <artifactId>boot3-08-robot-test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>boot3-08-robot-test</name>
-    <description>boot3-08-robot-test</description>
+    <version>1.0.0</version>
     <properties>
-        <java.version>21</java.version>
+        <robot-starter.version>1.0.0</robot-starter.version>
     </properties>
     <dependencies>
         <dependency>
@@ -22,9 +18,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.atguigu</groupId>
+            <groupId>com.zjw</groupId>
             <artifactId>boot3-08-robot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${robot-starter.version}</version>
         </dependency>
 
         <dependency>
@@ -38,22 +34,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -3,20 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
-        <relativePath/>
+        <groupId>com.zjw</groupId>
+        <artifactId>boot3-02-anno</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <groupId>com.atguigu.boot</groupId>
     <artifactId>anno</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>anno</name>
-    <description>anno</description>
-
-    <properties>
-        <java.version>21</java.version>
-    </properties>
+    <version>1.0.0</version>
 
     <dependencies>
         <dependency>
@@ -35,7 +27,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.2.20</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -43,22 +34,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
