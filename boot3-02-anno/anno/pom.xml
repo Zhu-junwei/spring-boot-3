@@ -27,6 +27,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -57,6 +57,8 @@ class RedisUtilTest {
 
         List<String> all = redisUtil.listAll(key);
         assertEquals(list.size(), all.size(),"数量不一致");
+
+        log.info("Expected list size: {}, Actual list size: {}", list, all);
     }
 
     /*

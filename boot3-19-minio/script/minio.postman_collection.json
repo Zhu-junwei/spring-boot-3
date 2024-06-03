@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "0642349e-4824-4e89-b1e9-384d7302163f",
+		"name": "minio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8043788"
+	},
+	"item": [
+		{
+			"name": "minio-upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/系统文件夹/Desktop/MINIO_Bird.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/minio/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"minio",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "minio-download",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/minio/download/1717431868753_MINIO_Bird.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"minio",
+						"download",
+						"1717431868753_MINIO_Bird.png"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
