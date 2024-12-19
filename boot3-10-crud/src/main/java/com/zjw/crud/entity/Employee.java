@@ -1,6 +1,8 @@
 package com.zjw.crud.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author 朱俊伟
@@ -8,6 +10,8 @@ import lombok.Data;
  * @since 2023-04-28 16:42
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
     private Long id;
     private String empName;

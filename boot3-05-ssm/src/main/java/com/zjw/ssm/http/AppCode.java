@@ -3,7 +3,7 @@ package com.zjw.ssm.http;
 import lombok.Getter;
 
 @Getter
-public enum  AppCode implements StatusCode {
+public enum AppCode implements StatusCode {
 
     APP_ERROR(2000, "业务异常"),
     USER_NOT_FOUND_ERROR(2001, "用户不存在");

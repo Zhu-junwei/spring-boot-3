@@ -5,10 +5,15 @@
     <parent>
         <groupId>com.zjw</groupId>
         <artifactId>spring-boot-3</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>boot3-03-logging</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
+
+    <properties>
+        <java.version>22</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+    </properties>
 
     <dependencies>
         <dependency>

@@ -1,8 +1,7 @@
 package com.zjw.controller;
 
 import com.zjw.service.MinioService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
+import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +11,9 @@ import java.io.InputStream;
 
 @RestController
 @RequestMapping("/minio")
+@AllArgsConstructor
 public class MinioController {
 
-    @Autowired
     private MinioService minioService;
 
     @PostMapping("/upload")
@@ -29,15 +28,27 @@ public class MinioController {
 
     @GetMapping("/download/{fileName}")
     public ResponseEntity<byte[]> downloadFile(@PathVariable String fileName) {
-        try {
-            InputStream fileStream = minioService.downloadFile(fileName);
+        try(InputStream fileStream = minioService.downloadFile(fileName)) {
             byte[] fileBytes = fileStream.readAllBytes();
+            // 确定文件类型并设置适当的MediaType
+            MediaType mediaType = getMediaTypeForFileName(fileName);
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                    .contentType(mediaType)
                     .body(fileBytes);
         } catch (Exception e) {
             return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    private MediaType getMediaTypeForFileName(String fileName) {
+        if (fileName.toLowerCase().endsWith(".png")) {
+            return MediaType.IMAGE_PNG;
+        } else if (fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".jpeg")) {
+            return MediaType.IMAGE_JPEG;
+        } else if (fileName.toLowerCase().endsWith(".gif")) {
+            return MediaType.IMAGE_GIF;
+        } else {
+            return MediaType.APPLICATION_OCTET_STREAM;
         }
     }
 }

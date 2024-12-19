@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zjw</groupId>
-        <artifactId>boot3-12-message-rabbitMQ</artifactId>
-        <version>1.0.0</version>
+        <artifactId>RabbitMQ</artifactId>
+        <version>1.0.1</version>
     </parent>
     <artifactId>RabbitMQ-producer</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <dependencies>
         <dependency>

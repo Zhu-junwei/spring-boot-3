@@ -2,6 +2,7 @@ package com.zjw.config;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.lang.NonNull;
 
 /**
  * 通过实现ImportSelector接口来实现自定义导入
@@ -14,7 +15,8 @@ import org.springframework.core.type.AnnotationMetadata;
 public class ImportSelectorImpl implements ImportSelector {
 
     @Override
-    public String[] selectImports(AnnotationMetadata importingClassMetadata) {
+    @NonNull
+    public String[] selectImports(@NonNull AnnotationMetadata importingClassMetadata) {
         return new String[]{"com.zjw.domain.Cat"};
     }
 }

@@ -1,9 +1,3 @@
-server:
-  port: 8443  # HTTPS服务监听的端口号，默认为443，这里使用了8443，避免与系统端口冲突
-  ssl:
-    key-store: classpath:keystore.p12 # 指向包含服务器私钥和证书的密钥库文件
-    key-store-password: 123456  # 密钥库的密码
-    key-store-type: PKCS12  # 密钥库类型，PKCS12是一种广泛支持的格式
-    key-alias: myalias  # 密钥库中密钥的别名
-  http2:
-    enabled: true # 启用HTTP/2协议，确保使用的服务器支持HTTP/2
+spring:
+  profiles:
+    active: keystore

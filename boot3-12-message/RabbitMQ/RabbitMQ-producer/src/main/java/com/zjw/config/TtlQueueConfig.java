@@ -30,6 +30,7 @@ public class TtlQueueConfig {
     public static final String QUEUE_A = "QA";
     public static final String QUEUE_B = "QB";
     public static final String QUEUE_C = "QC";
+    public static final String QUEUE_E = "QE";
     /**
      * 死信队列名称
      */
@@ -40,6 +41,7 @@ public class TtlQueueConfig {
     public static final String ROUTING_KEY_XA = "XA";
     public static final String ROUTING_KEY_XB = "XB";
     public static final String ROUTING_KEY_XC = "XC";
+    public static final String ROUTING_KEY_XE = "XE";
     public static final String ROUTING_KEY_YD = "YD";
 
     /**
@@ -117,6 +119,18 @@ public class TtlQueueConfig {
     }
 
     /**
+     * 队列E，设置TTL 10s，过期后丢弃消息
+     * @return 队列
+     */
+    @Bean("queueE")
+    public Queue queueE(){
+        Map<String, Object> arguments = new HashMap<>();
+        //设置TTL 单位是ms
+        arguments.put("x-message-ttl", 10000);
+        return QueueBuilder.durable(QUEUE_E).withArguments(arguments).build();
+    }
+
+    /**
      * 队列和交换机绑定
      * @param queueA 队列
      * @param xExchange 交换机
@@ -163,4 +177,17 @@ public class TtlQueueConfig {
                                   @Qualifier("yExchange") DirectExchange yExchange){
         return BindingBuilder.bind(queueD).to(yExchange).with(ROUTING_KEY_YD);
     }
+
+    /**
+     * 队列和交换机绑定
+     * @param queueE 队列
+     * @param xExchange 交换机
+     * @return 绑定关系
+     */
+    @Bean
+    public Binding queueEBindingX(@Qualifier("queueE") Queue queueE,
+                                  @Qualifier("xExchange") DirectExchange xExchange){
+        return BindingBuilder.bind(queueE).to(xExchange).with(ROUTING_KEY_XE);
+    }
+
 }

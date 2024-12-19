@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.zjw</groupId>
         <artifactId>boot3-08-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>boot3-08-robot-test</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <properties>
-        <robot-starter.version>1.0.0</robot-starter.version>
+        <robot-starter.version>1.0.1</robot-starter.version>
     </properties>
     <dependencies>
         <dependency>

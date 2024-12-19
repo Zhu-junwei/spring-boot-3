@@ -39,7 +39,7 @@ public class ConfirmConfig {
      */
     @Bean("backupExchange")
     public FanoutExchange backupExchange(){
-        return new FanoutExchange(BACKUP_EXCHANGE_NAME);
+        return ExchangeBuilder.fanoutExchange(BACKUP_EXCHANGE_NAME).build();
     }
 
     /**

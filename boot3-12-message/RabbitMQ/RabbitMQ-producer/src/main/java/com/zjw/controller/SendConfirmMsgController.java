@@ -28,13 +28,13 @@ public class SendConfirmMsgController {
     @GetMapping("sendMessage/{message}")
     public void sendMessage(@PathVariable String message){
         //指定消息id为1
-        CorrelationData correlationData1 = new CorrelationData("1");
         String routingKey = "key1";
-        rabbitTemplate.convertAndSend(CONFIRM_EXCHANGE_NAME, routingKey, message+routingKey, correlationData1);
+        CorrelationData correlationData = new CorrelationData("1");
+        rabbitTemplate.convertAndSend(CONFIRM_EXCHANGE_NAME, routingKey, message+routingKey, correlationData);
 
-        CorrelationData correlationData2 = new CorrelationData("2");
+        correlationData = new CorrelationData("2");
         routingKey = "key2";
-        rabbitTemplate.convertAndSend(CONFIRM_EXCHANGE_NAME, routingKey, message+routingKey, correlationData2);
+        rabbitTemplate.convertAndSend(CONFIRM_EXCHANGE_NAME, routingKey, message+routingKey, correlationData);
 
         log.info("发送消息内容:{}", message);
     }

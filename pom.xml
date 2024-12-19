@@ -5,20 +5,20 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.0</version>
+        <version>3.4.0</version>
         <relativePath/>
     </parent>
     <artifactId>spring-boot-3</artifactId>
     <groupId>com.zjw</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <properties>
         <java.version>21</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
-        <druid.version>1.2.23</druid.version>
+        <druid.version>1.2.24</druid.version>
         <mybatis.version>3.0.3</mybatis.version>
-        <mybatis-plus.version>3.5.6</mybatis-plus.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
         <juqery.verion>3.7.1</juqery.verion>
         <openapi.version>2.3.0</openapi.version>
         <minio.version>8.5.10</minio.version>

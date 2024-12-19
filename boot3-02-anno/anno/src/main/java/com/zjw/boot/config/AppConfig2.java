@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @author 朱俊伟
  */
 @Configuration
-@EnableConfigurationProperties(Sheep.class)
+@EnableConfigurationProperties({Sheep.class})
 public class AppConfig2 {
 
 }

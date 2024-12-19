@@ -1,9 +1,6 @@
 package com.zjw.config;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +35,8 @@ public class PriorityConfig {
     @Bean("priorityQueue")
     public Queue priorityQueue(){
         Map<String, Object> args = Map.of("x-max-priority", 10);
-        return new Queue(PRIORITY_QUEUE_NAME,true,false,false,args);
+        return QueueBuilder.durable(PRIORITY_QUEUE_NAME).withArguments(args).build();
+//        return new Queue(PRIORITY_QUEUE_NAME,true,false,false,args);
     }
 
     /**

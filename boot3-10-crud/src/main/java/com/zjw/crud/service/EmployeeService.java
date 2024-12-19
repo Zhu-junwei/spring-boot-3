@@ -15,7 +15,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class EmployeeService {
 
-    Map<Long, Employee> data = new ConcurrentHashMap<>();
+    Map<Long, Employee> data = new ConcurrentHashMap<>(){{
+        put(1L, new Employee(1L, "Tom", 25, "tom@gmail.com"));
+        put(2L, new Employee(2L, "Jerry", 30, "jerry@gmail.com"));
+    }};
 
     public Employee getEmployeeById(Long id) {
         return data.get(id);

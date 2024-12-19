@@ -12,8 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ImportsApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ImportsApplication.class, args);
-        System.out.println("context.getBean(\"com.zjw.domain.Dog\") = " + context.getBean("com.zjw.domain.Dog"));
-        System.out.println("context.getBean(\"com.zjw.domain.Cat\") = " + context.getBean("com.zjw.domain.Cat"));
-
+        System.out.println(context.containsBean("com.zjw.domain.Dog"));
+        System.out.println(context.containsBean("com.zjw.domain.Cat"));
     }
 }

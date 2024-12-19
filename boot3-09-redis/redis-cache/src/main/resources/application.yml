@@ -9,7 +9,7 @@ spring:
     type: redis
   data:
     redis:
-      host: redis
+      host: redis-termux
       port: 6379
       password: redis@123
       client-type: lettuce  # 客户端类型，默认为lettuce，可选jedis

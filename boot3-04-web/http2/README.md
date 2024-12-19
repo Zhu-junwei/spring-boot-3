@@ -6,6 +6,8 @@
 
 使用JDK的`keytool`工具生成自签名证书。
 
+另外还可以使用[mkcert](https://github.com/FiloSottile/mkcert)工具生成本地可信的证书。
+
 ```bash
 keytool -genkeypair -alias myalias -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore keystore.p12 -validity 3650
 ```
@@ -42,7 +44,7 @@ keytool -genkeypair -alias myalias -keyalg RSA -keysize 2048 -storetype PKCS12 -
 该单位的双字母国家/地区代码是什么?
   [Unknown]:  CN
 CN=www.xingchen.com, OU=IT Department, O="Xingchen Technology Co., Ltd.", L=Beijing, ST=Beijing, C=CN是否正确?
-  [否]:  是
+  [否]:  y
 
 正在为以下对象生成 2,048 位RSA密钥对和自签名证书 (SHA256withRSA) (有效期为 3,650 天):
          CN=www.xingchen.com, OU=IT Department, O="Xingchen Technology Co., Ltd.", L=Beijing, ST=Beijing, C=CN

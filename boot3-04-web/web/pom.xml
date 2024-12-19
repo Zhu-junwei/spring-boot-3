@@ -5,10 +5,10 @@
     <parent>
         <groupId>com.zjw</groupId>
         <artifactId>boot3-04-web</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>boot3-04-web-web</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

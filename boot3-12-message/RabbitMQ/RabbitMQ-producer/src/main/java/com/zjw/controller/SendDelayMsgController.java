@@ -33,11 +33,11 @@ public class SendDelayMsgController {
      */
     @GetMapping("/{message}/{delayTime}")
     public void sendMsg(@PathVariable String message, @PathVariable Long delayTime) {
-        log.info("当前时间:{},发送一条时长{}毫秒信息给队列delayed.queue:{}", new Date(), delayTime, message);
-        rabbitTemplate.convertAndSend(DELAYED_EXCHANGE_NAME, DELAYED_ROUTING_KEY, message, correlationData -> {
-            //delayTime 单位：ms
-            correlationData.getMessageProperties().setDelayLong(delayTime);
-            return correlationData;
+        log.info("当前时间:{}, 发送一条时长{}毫秒信息给队列delayed.queue:{}", new Date(), delayTime, message);
+        rabbitTemplate.convertAndSend(DELAYED_EXCHANGE_NAME, DELAYED_ROUTING_KEY, message, messagePostProcessor -> {
+            // 设置延迟时间，单位：ms
+            messagePostProcessor.getMessageProperties().setHeader("x-delay", delayTime);
+            return messagePostProcessor;
         });
     }
 }

@@ -20,6 +20,6 @@ public class DelayQueueConsumer {
     @RabbitListener(queues = {"delayed.queue"})
     public void receiveD(Message message, Channel channel){
         String msg = new String(message.getBody());
-        log.info("当前时间:{},收到死信队列的消息:{}",new Date().toString(), msg);
+        log.info("当前时间:{},收到延迟队列的消息:{}",new Date().toString(), msg);
     }
 }

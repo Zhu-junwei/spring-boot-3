@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SystemController {
 
-    @Value("${version:1.0.0}")
+    @Value("${version:1.0.1}")
     String version;
 
     @GetMapping("/version")

@@ -52,6 +52,13 @@ public class MyCallBack implements RabbitTemplate.ConfirmCallback, RabbitTemplat
      */
     @Override
     public void returnedMessage(ReturnedMessage returned) {
+        // 判断是否是延迟交换机返回的消息
+        if (returned.getMessage().getMessageProperties().getHeaders().containsKey("x-delay")) {
+            log.debug("延迟消息退回处理（延迟中，正常行为）：{}", new String(returned.getMessage().getBody()));
+            return;
+        }
+
+        // 处理退回的消息
         log.warn("消息:{},被交换机退回:{},退回原因:{},路由Key:{}",
                 new String(returned.getMessage().getBody()),
                 returned.getExchange(),

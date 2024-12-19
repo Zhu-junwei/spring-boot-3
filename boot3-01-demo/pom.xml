@@ -6,10 +6,9 @@
     <parent>
         <groupId>com.zjw</groupId>
         <artifactId>spring-boot-3</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>boot3-01-demo</artifactId>
-    <version>1.0.0</version>
 
     <dependencies>
         <dependency>

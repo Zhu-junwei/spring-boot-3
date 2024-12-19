@@ -22,7 +22,7 @@ import static com.zjw.config.TtlQueueConfig.*;
 @Slf4j
 @RestController
 @RequestMapping("/ttl")
-public class SendMsgController {
+public class SendTTLMsgController {
 
     private RabbitTemplate rabbitTemplate;
 
@@ -46,9 +46,19 @@ public class SendMsgController {
     public void sendMsg(@PathVariable String message,
                         @PathVariable String ttlTime) {
         log.info("当前时间:{},发送一条时长{}毫秒信息给队列QC:{}", new Date(), ttlTime, message);
-        rabbitTemplate.convertAndSend(EXCHANGE_X, ROUTING_KEY_XC, message, correlationData -> {
-            correlationData.getMessageProperties().setExpiration(ttlTime);
-            return correlationData;
+        rabbitTemplate.convertAndSend(EXCHANGE_X, ROUTING_KEY_XC, message, messagePostProcessor -> {
+            messagePostProcessor.getMessageProperties().setExpiration(ttlTime);
+            return messagePostProcessor;
         });
+    }
+
+    /**
+     * 生产者发送消息
+     * @param message   消息
+     */
+    @GetMapping("sendDropMsg/{message}")
+    public void sendDropMsg(@PathVariable String message) {
+        log.info("当前时间:{},发送一条信息给过期丢弃的TTL队列:{}", new Date(), message);
+        rabbitTemplate.convertAndSend(EXCHANGE_X, ROUTING_KEY_XE, "消息来自ttl为10S的队列" + message);
     }
 }
