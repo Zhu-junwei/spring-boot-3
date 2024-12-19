@@ -4,8 +4,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: '*' # 所有的Actuator端点都将通过Web暴露
   endpoint:
     health:
-      enabled: true
-      show-details: always
+      show-details: always # 总是显示详细的健康信息
+      access: unrestricted # 对健康检查端点的访问没有限制。

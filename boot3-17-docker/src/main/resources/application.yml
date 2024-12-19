@@ -1,5 +1,5 @@
 spring:
   data:
     redis:
-      host: 192.168.234.128
+      host: redis-termux
       password: redis@123

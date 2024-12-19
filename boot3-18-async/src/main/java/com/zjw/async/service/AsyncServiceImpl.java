@@ -20,6 +20,7 @@ public class AsyncServiceImpl implements AsyncService {
     @Async
     @Override
     public CompletableFuture<String> asyncMethod() {
+        System.out.println("Service: async method started...");
         try {
             // 模拟一个耗时操作，以展示异步执行的效果
             Thread.sleep(5000);
@@ -27,6 +28,7 @@ public class AsyncServiceImpl implements AsyncService {
             // 中断当前线程，保持中断状态
             Thread.currentThread().interrupt();
         }
+        System.out.println("Service: async method completed...");
         // 返回一个已完成的Future，包含异步操作的结果消息
         return CompletableFuture.completedFuture("Async operation completed!");
     }
