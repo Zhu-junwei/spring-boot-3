@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AsyncServiceTest {
 
     @Autowired
-    private AsyncService asyncService;
+    private DemoService asyncService;
 
     @Test
     public void testAsyncMethod() throws Exception {
