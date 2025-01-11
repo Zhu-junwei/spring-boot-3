@@ -15,7 +15,7 @@ public class FileUploaderTest {
      */
     @Test
     public void createBucketAndUpload() throws IOException, NoSuchAlgorithmException, InvalidKeyException {
-        String endpoint = "http://minio:9000";
+        String endpoint = "http://minio-termux:9000";
         String accessKey = "minioadmin";
         String secretKey = "minioadmin";
         String bucketName = "hello-minio";

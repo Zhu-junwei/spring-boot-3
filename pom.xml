@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.4.1</version>
         <relativePath/>
     </parent>
     <artifactId>spring-boot-3</artifactId>
@@ -44,6 +44,7 @@
         <module>boot3-17-docker</module>
         <module>boot3-18-async</module>
         <module>boot3-19-minio</module>
+        <module>boot3-20-publish-subscribe</module>
     </modules>
 
     <dependencyManagement>

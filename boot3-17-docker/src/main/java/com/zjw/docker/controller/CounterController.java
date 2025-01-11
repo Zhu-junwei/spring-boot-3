@@ -1,6 +1,6 @@
 package com.zjw.docker.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2023/11/01 19:48
  */
 @RestController
+@AllArgsConstructor
 public class CounterController {
 
-    @Autowired
-    StringRedisTemplate redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     @GetMapping("/")
     public String count() {
